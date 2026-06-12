@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>K-AI Culture Academy | AI로 만나는 K-컬처의 미래</title>
+    <!-- Tailwind + Google Fonts + Iconify -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #ffffff;
+            color: #18181b;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #d4d4d8;
+            border-radius: 12px;
+        }
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .keep-all {
+            word-break: keep-all;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 10% 30%, rgba(255,245,240,0.6) 0%, rgba(255,255,255,0) 70%);
+        }
+        .card-hover {
+            transition: all 0.25s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+        }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255,255,255,0.85);
+        }
+        .tab-active {
+            border-bottom: 2px solid #e11d48;
+            color: #18181b;
+            font-weight: 500;
+        }
+        .schedule-scroll {
+            scrollbar-width: thin;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Fixed Navigation (inspired by KaiCA design) -->
+    <header class="fixed top-0 w-full z-50 nav-blur border-b border-zinc-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 h-16 md:h-20 flex items-center justify-between">
+            <!-- Logo left -->
+            <a href="#" onclick="scrollToTop(); return false;" class="text-2xl tracking-tighter text-zinc-900 font-serif font-medium flex items-center gap-1.5">
+                <span class="text-rose-600">K-AI</span> Culture Academy
+            </a>
+            <!-- Desktop Nav simplified (as per reference style) -->
+            <nav class="hidden md:flex items-center gap-7">
+                <a href="#about" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition">캠프 소개</a>
+                <a href="#program" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition">프로그램</a>
+                <a href="#schedule" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition">세부일정</a>
+                <a href="#instructors" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition">강사진</a>
+                <a href="#apply" class="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition">신청안내</a>
+                <div class="w-px h-4 bg-zinc-200"></div>
+                <a href="#" class="text-xs font-semibold text-white bg-rose-600 px-4 py-1.5 rounded-full hover:bg-rose-700 transition shadow-sm">사전알림 신청</a>
+            </nav>
+            <!-- Mobile menu icon (minimal) -->
+            <button class="md:hidden text-zinc-600">
+                <iconify-icon icon="solar:hamburger-menu-linear" width="26" height="26"></iconify-icon>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16 md:pt-20">
+        <!-- Hero Section: blending K-AI + Premium aesthetics -->
+        <section class="relative overflow-hidden bg-white">
+            <div class="absolute inset-0 hero-gradient pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-24 lg:py-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 fade-in">
+                        <div class="flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                            <span class="text-xs font-semibold uppercase tracking-widest text-rose-600">2026 Winter Camp</span>
+                        </div>
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl tracking-tighter text-zinc-900 leading-[1.1] font-medium keep-all">
+                            K-컬처, AI로<br>
+                            <span class="font-serif italic text-zinc-400">글로벌이 되다</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-zinc-500 font-light max-w-xl leading-relaxed keep-all">
+                            서울대학교 캠퍼스에서 만나는 AI 기반 K-pop, K-드라마, K-뷰티 실무 교육.<br>
+                            SOPA · 추계예대 · 월드케이팝센터와 함께 미래를 디자인합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="#apply" class="bg-zinc-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-zinc-800 transition shadow-sm">참가 신청 접수예정</a>
+                            <a href="#program" class="border border-zinc-200 text-zinc-700 px-6 py-3 rounded-full text-sm font-medium hover:bg-zinc-50 transition">프로그램 살펴보기</a>
+                        </div>
+                        <div class="flex items-center gap-5 text-sm text-zinc-400 pt-2">
+                            <span>📅 2026년 겨울방학 (4박5일)</span>
+                            <span>📍 서울대학교 기숙사 + 강의실</span>
+                            <span>👥 40명 (고등부·대학부)</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 relative">
+                        <div class="aspect-[4/3] w-full bg-zinc-100 overflow-hidden rounded-2xl shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format" class="w-full h-full object-cover" alt="K-pop AI Camp">
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2 shadow-sm border border-zinc-100 text-xs font-medium text-zinc-800">
+                            ✨ AI 음정교정 · 안무분석 · K-뷰티 실습
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About section: 차별점 & 핵심 가치 (표 비교) -->
+        <section id="about" class="py-16 md:py-24 bg-zinc-50/50 border-y border-zinc-100">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-rose-600 text-sm font-bold tracking-wider">K-AI ONLY</span>
+                    <h2 class="text-3xl md:text-4xl tracking-tight text-zinc-900 mt-2 font-serif font-medium">완전히 새로운 K-컬처 캠프</h2>
+                    <p class="text-zinc-500 mt-3 keep-all">단순 체험을 넘어, AI 실무와 예술 명문대 협력으로 진로를 디자인합니다.</p>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-zinc-200 bg-white shadow-sm">
+                    <table class="min-w-full text-sm md:text-base">
+                        <thead class="bg-zinc-50 border-b border-zinc-200">
+                            <tr class="text-left">
+                                <th class="px-5 py-4 font-semibold text-zinc-600">구분</th>
+                                <th class="px-5 py-4 font-semibold text-zinc-500">기존 K-과학인재 아카데미</th>
+                                <th class="px-5 py-4 font-semibold text-rose-700 bg-rose-50/40">K-AI Culture Academy (본 캠프)</th>
+                             </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-100">
+                            <tr><td class="px-5 py-3 font-medium">주제</td><td class="px-5 py-3 text-zinc-500">과학, 공학, 창의융합</td><td class="px-5 py-3 bg-rose-50/20 font-medium text-zinc-800">AI + K-컬처 (K-pop, K-드라마, K-뷰티)</td></tr>
+                            <tr><td class="px-5 py-3 font-medium">강사진</td><td class="px-5 py-3 text-zinc-500">과학기술 전문가</td><td class="px-5 py-3 bg-rose-50/20">SOPA·추계예대·월드케이팝센터 실무 강사</td></tr>
+                            <tr><td class="px-5 py-3 font-medium">특화 내용</td><td class="px-5 py-3 text-zinc-500">연구과제, 멘토링</td><td class="px-5 py-3 bg-rose-50/20">AI 음정 교정, 안무 영상 분석, K-뷰티 실습, 자격증 트랙</td></tr>
+                            <tr><td class="px-5 py-3 font-medium">장소</td><td class="px-5 py-3 text-zinc-500">신라호텔 등</td><td class="px-5 py-3 bg-rose-50/20">서울대학교 기숙사 + 강의실 (대학 캠퍼스 체험)</td></tr>
+                            <tr><td class="px-5 py-3 font-medium">향후 연계</td><td class="px-5 py-3 text-zinc-500">미정</td><td class="px-5 py-3 bg-rose-50/20">베트남·몽골 해외 캠프 전단계</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-zinc-100"><iconify-icon icon="solar:microphone-bold" width="32" class="mx-auto text-rose-500"></iconify-icon><h3 class="font-bold mt-3">AI + K-pop 실무</h3><p class="text-sm text-zinc-500">발음·음정 교정, 안무 AI 분석, 작곡 보조툴</p></div>
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-zinc-100"><iconify-icon icon="solar:clapperboard-play-bold" width="32" class="mx-auto text-rose-500"></iconify-icon><h3 class="font-bold mt-3">K-드라마 & 한국어</h3><p class="text-sm text-zinc-500">AI 튜터링 기반 대사 연습, 더빙 체험</p></div>
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-zinc-100"><iconify-icon icon="solar:lipstick-bold" width="32" class="mx-auto text-rose-500"></iconify-icon><h3 class="font-bold mt-3">K-뷰티 & 자격증</h3><p class="text-sm text-zinc-500">AI 피부진단, 메이크업 실습, K-pop 트레이너 2급</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program overview: 3.2 주요 커리큘럼 상세 -->
+        <section id="program" class="py-20 md:py-28">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl tracking-tight text-zinc-900 font-serif font-medium">주요 커리큘럼</h2>
+                    <p class="text-zinc-500 mt-2">SOPA·추계예대·에듀포레가 함께 설계한 4가지 트랙</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="border-l-4 border-rose-500 bg-white p-6 shadow-sm rounded-r-xl"><h3 class="text-xl font-bold">🎤 AI + K-pop</h3><p class="text-zinc-600 text-sm mt-2">AI 음정/발음 교정, 안무 영상 분석, 작곡 보조 툴 체험 (SOPA+에듀포레)</p></div>
+                    <div class="border-l-4 border-rose-500 bg-white p-6 shadow-sm rounded-r-xl"><h3 class="text-xl font-bold">🎬 K-드라마·한국어</h3><p class="text-zinc-600 text-sm mt-2">AI 튜터링 기반 드라마 대사 연습, 더빙 체험 (에듀포레)</p></div>
+                    <div class="border-l-4 border-rose-500 bg-white p-6 shadow-sm rounded-r-xl"><h3 class="text-xl font-bold">💄 K-뷰티</h3><p class="text-zinc-600 text-sm mt-2">AI 피부 진단, K-뷰티 메이크업 실습 (추계예대 연계)</p></div>
+                    <div class="border-l-4 border-rose-500 bg-white p-6 shadow-sm rounded-r-xl"><h3 class="text-xl font-bold">📜 자격증 트랙(선택)</h3><p class="text-zinc-600 text-sm mt-2">월드케이팝센터 K-pop 트레이너 2급 이론+실기</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 세부일정표 (4박5일) - 한눈에 보기 -->
+        <section id="schedule" class="py-16 bg-zinc-50/70 border-y border-zinc-100">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-3">
+                    <div><h2 class="text-3xl tracking-tight font-serif font-medium">4박 5일 일정표</h2><p class="text-zinc-500 text-sm">서울대·추계예대·SOPA 협력 풀패키지</p></div>
+                    <span class="text-xs bg-white px-3 py-1 rounded-full shadow-sm">※ 자세한 시간표는 캠프 안내책자 참고</span>
+                </div>
+                <div class="grid md:grid-cols-5 gap-4 overflow-x-auto pb-2 schedule-scroll">
+                    <div class="bg-white rounded-2xl shadow-sm p-5 border border-zinc-100 min-w-[200px]"><div class="font-bold text-rose-600 text-lg">Day 1</div><div class="font-semibold mt-1">입소 & OT</div><ul class="text-xs text-zinc-600 mt-2 space-y-1"><li>• 특강: AI와 K-컬처의 미래</li><li>• 아이스브레이킹, 팀빌딩</li><li>• K-pop 커버댄스 워크숍</li></ul></div>
+                    <div class="bg-white rounded-2xl shadow-sm p-5 border border-zinc-100"><div class="font-bold text-rose-600 text-lg">Day 2</div><div class="font-semibold mt-1">SOPA 특강</div><ul class="text-xs text-zinc-600 mt-2 space-y-1"><li>• K-pop 보컬 + AI 발음교정</li><li>• 안무 워크숍 + 동작분석 AI</li><li>• 팀별 연습 및 피드백</li></ul></div>
+                    <div class="bg-white rounded-2xl shadow-sm p-5 border border-zinc-100"><div class="font-bold text-rose-600 text-lg">Day 3</div><div class="font-semibold mt-1">추계예대 연계</div><ul class="text-xs text-zinc-600 mt-2 space-y-1"><li>• 실전 무대 기획 특강</li><li>• 녹음실/안무 스튜디오 체험</li><li>• K-뷰티 클래스 & 메이크업 실습</li></ul></div>
+                    <div class="bg-white rounded-2xl shadow-sm p-5 border border-zinc-100"><div class="font-bold text-rose-600 text-lg">Day 4</div><div class="font-semibold mt-1">자격증 & 발표회</div><ul class="text-xs text-zinc-600 mt-2 space-y-1"><li>• K-pop 트레이너 2급 특강(선택)</li><li>• 팀별 창작 발표회</li><li>• 수료식 및 특별 심사</li></ul></div>
+                    <div class="bg-white rounded-2xl shadow-sm p-5 border border-zinc-100"><div class="font-bold text-rose-600 text-lg">Day 5</div><div class="font-semibold mt-1">진로 멘토링</div><ul class="text-xs text-zinc-600 mt-2 space-y-1"><li>• SOPA·추계예대·에듀포레 멘토링</li><li>• 후속 해외캠프 안내</li><li>• 퇴소식</li></ul></div>
+                </div>
+                <div class="mt-8 text-center"><a href="#" class="inline-flex items-center gap-1 text-sm text-zinc-500 hover:text-rose-600 transition">전체 상세일정 PDF 다운로드 <iconify-icon icon="solar:download-linear" width="16"></iconify-icon></a></div>
+            </div>
+        </section>
+
+        <!-- 강사 라인업 (SOPA + 추계예대 + 에듀포레) -->
+        <section id="instructors" class="py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl tracking-tight font-serif font-medium">강사 라인업</h2><p class="text-zinc-500">실무 경쟁력을 갖춘 명문 기관의 전문가진</p></div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-zinc-50/80 rounded-2xl p-6"><div class="flex items-center gap-3 border-b border-zinc-200 pb-3"><iconify-icon icon="logos:spotify" width="30"></iconify-icon><h3 class="text-xl font-bold">SOPA</h3></div><ul class="mt-4 space-y-2 text-sm"><li>🎤 김보경 (실용음악과) – K-pop 보컬 & AI 발음 교정</li><li>💃 이준호 (무용예술과) – 안무 워크숍 · AI 동작 분석</li><li>🎹 박지윤 (실용음악과) – 작곡 기초 · AI 작곡 보조툴</li><li>✨ SOPA 재학생 멘토 1:1 코칭</li></ul></div>
+                    <div class="bg-zinc-50/80 rounded-2xl p-6"><div class="flex items-center gap-3 border-b border-zinc-200 pb-3"><iconify-icon icon="material-symbols:theater-comedy" width="30"></iconify-icon><h3 class="text-xl font-bold">추계예대</h3></div><ul class="mt-4 space-y-2 text-sm"><li>🎬 윤석호 교수 – 공연기획·프로듀싱 특강</li><li>💄 최수연 교수 – AI 피부진단 & K-뷰티 메이크업 실습</li><li>🎧 한상욱 실습조교 – 녹음실/안무 스튜디오 체험</li><li>🎓 대학원생 멘토 – 진로멘토링</li></ul></div>
+                    <div class="bg-zinc-50/80 rounded-2xl p-6"><div class="flex items-center gap-3 border-b border-zinc-200 pb-3"><iconify-icon icon="carbon:ai" width="30"></iconify-icon><h3 class="text-xl font-bold">에듀포레 & 월드케이팝센터</h3></div><ul class="mt-4 space-y-2 text-sm"><li>🤖 정다혜 본부장 – AI와 K-컬처 특강, AI 툴 실습</li><li>📜 장민호 위원 – K-pop 트레이너 2급 자격증 과정</li><li>🎬 이수진 팀장 – K-드라마 AI 튜터링·더빙 워크숍</li><li>📌 총괄 운영 및 자격증 시행</li></ul></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 참가비 및 모집 일정 (Table 스타일) -->
+        <section id="apply" class="py-16 bg-white border-t border-zinc-100">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-10"><h2 class="text-3xl font-serif font-medium tracking-tight">모집 및 참가 안내</h2><p class="text-zinc-500">2026년 겨울, 서울대학교에서 만납니다</p></div>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="border border-zinc-200 rounded-2xl p-6 shadow-sm"><h3 class="text-xl font-bold flex items-center gap-2"><iconify-icon icon="solar:calendar-linear" width="24"></iconify-icon> 모집 일정</h3><ul class="mt-3 space-y-2 text-sm text-zinc-700"><li>📢 모집공고: 2026년 9월~10월</li><li>📝 서류접수: 3주간 (자기소개서, 포트폴리오 선택)</li><li>🎯 선발발표: 40명 (고등부 20 / 대학부 20)</li><li>💰 참가비 납부: 발표 후 1주 이내</li></ul></div>
+                    <div class="border border-zinc-200 rounded-2xl p-6 shadow-sm"><h3 class="text-xl font-bold flex items-center gap-2"><iconify-icon icon="solar:wallet-linear" width="24"></iconify-icon> 참가비 (안)</h3><ul class="mt-3 space-y-2 text-sm"><li>✅ 일반 참가비: <span class="font-bold text-zinc-900">550,000원</span> (4박5일 전비용)</li><li>🎓 조기할인: 490,000원 (2개월 전 결제)</li><li>📜 자격증 트랙(선택): +150,000원</li><li>🏅 장학생: 무료 (5명 내외, 사회적배려층·특기자)</li></ul><div class="mt-4 text-xs text-rose-600 bg-rose-50 p-2 rounded-lg">※ 초기 파일럿 모델로 교육의 질과 브랜드 가치 우선</div></div>
+                </div>
+                <div class="mt-12 text-center bg-zinc-900 text-white rounded-2xl p-8"><p class="text-lg font-medium keep-all">🎯 캠프 마감 후 베트남·몽골 해외 캠프로 연계되는 글로벌 리더십 트랙</p><p class="text-sm text-zinc-300 mt-1">K-AI Culture Academy는 향후 세종학당과 협력하여 해외 현지 캠프를 운영합니다.</p><button class="mt-5 bg-white text-zinc-900 px-6 py-2 rounded-full text-sm font-semibold hover:bg-zinc-100 transition">사전 알림 신청 →</button></div>
+            </div>
+        </section>
+
+        <!-- 캠프 성과 및 향후 연계 (그리드) -->
+        <section class="py-20 bg-zinc-50/40 border-y border-zinc-100">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h2 class="text-3xl font-serif font-medium">캠프 성과 & 미래 비전</h2>
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div><div class="text-4xl mb-2">🎯</div><h3 class="font-bold">즉시 성과</h3><p class="text-zinc-500 text-sm">국내 고교·대학생 대상 AI K-컬처 실무 모델 검증</p></div>
+                    <div><div class="text-4xl mb-2">✈️</div><h3 class="font-bold">중기 연계</h3><p class="text-zinc-500 text-sm">베트남(하노이 ULIS)·몽골 현지 캠프 확장</p></div>
+                    <div><div class="text-4xl mb-2">🌐</div><h3 class="font-bold">장기 플랫폼</h3><p class="text-zinc-500 text-sm">K-AI 플랫폼 고도화 → 글로벌 온라인+오프라인 통합</p></div>
+                </div>
+                <div class="mt-10 inline-block bg-white px-6 py-3 rounded-full shadow-sm text-sm font-medium"><span class="text-rose-600">🏛️</span> 협력: 서울대 산학협력단 · SOPA · 추계예대 · 월드케이팝센터 · 호반그룹(후원예정)</div>
+            </div>
+        </section>
+
+        <!-- Footer inspired by KaiCA style -->
+        <footer class="bg-white border-t border-zinc-100 py-12">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2"><div class="font-serif text-xl font-semibold tracking-tighter">K-AI <span class="text-rose-600">Culture Academy</span></div><p class="text-zinc-500 text-sm mt-3 max-w-xs keep-all">에듀포레 주최 | 서울대학교 산학협력단 시설협력, SOPA·추계예대·월드케이팝센터와 함께하는 프리미엄 K-컬처 AI 캠프.</p><p class="text-xs text-zinc-400 mt-4">© 2026 K-AI Culture Academy. All rights reserved.</p></div>
+                <div><h4 class="font-semibold text-sm">문의</h4><ul class="mt-2 text-sm text-zinc-500 space-y-1"><li>edufore@k-ai.academy</li><li>02-1234-5678</li><li>카카오채널 @KAI캠프</li></ul></div>
+                <div><h4 class="font-semibold text-sm">바로가기</h4><ul class="mt-2 text-sm text-zinc-500 space-y-1"><li><a href="#about" class="hover:text-rose-600">캠프소개</a></li><li><a href="#schedule" class="hover:text-rose-600">일정표</a></li><li><a href="#" class="hover:text-rose-600">자격증 문의</a></li><li><a href="#" class="hover:text-rose-600">후원·협력</a></li></ul></div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        // 부드러운 스크롤 for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === "#" || href === "") return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
