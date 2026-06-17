@@ -66,6 +66,35 @@
         .schedule-scroll {
             scrollbar-width: thin;
         }
+        /* video wrapper */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-wrapper .absolute-badge {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1f1f1f;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
@@ -124,11 +153,19 @@
                         </div>
                     </div>
                     <div class="lg:col-span-5 relative">
-                        <div class="aspect-[4/3] w-full bg-zinc-100 overflow-hidden rounded-2xl shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format" class="w-full h-full object-cover" alt="K-pop AI Camp">
-                        </div>
-                        <div class="absolute -bottom-4 -left-4 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2 shadow-sm border border-zinc-100 text-xs font-medium text-zinc-800">
-                            ✨ AI 음정교정 · 안무분석 · K-뷰티 실습
+                        <!-- 
+                            변경사항: 마이크 이미지 대신 video/1.mp4 파일을 사용 
+                            poster 속성은 미리보기 이미지로 유지 (없으면 첫 프레임)
+                        -->
+                        <div class="aspect-[4/3] w-full bg-zinc-100 overflow-hidden rounded-2xl shadow-xl video-wrapper">
+                            <video muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format">
+                                <source src="video/1.mp4" type="video/mp4">
+                                <!-- fallback 이미지 (브라우저가 mp4를 지원하지 않을 경우) -->
+                                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format" class="w-full h-full object-cover" alt="K-pop AI Camp">
+                            </video>
+                            <div class="absolute-badge">
+                                ✨ AI 음정교정 · 안무분석 · K-뷰티 실습
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -263,6 +300,14 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // 비디오 자동 재생 (사용자 경험 향상, muted 조건)
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.video-wrapper video');
+            if (video) {
+                video.play().catch(() => {});
+            }
         });
     </script>
 </body>
